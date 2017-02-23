@@ -1,6 +1,12 @@
 class User < ActiveRecord::Base
   # Add associations here 
 
+  has_many :answers,
+  has_many :votes,
+  has_many :questions,
+  has_many :comments
+
+
   validates :email, uniqueness: true 
 
   def password 
