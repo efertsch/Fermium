@@ -21,9 +21,9 @@
   <%if current_user%>
     <nav id="nav-bar">
       <ul id=bar-if-in>
-        <li><a href="/">Home</a></li>
-        <li><a href="/users/<%=current_user.id%>">Profile</a></li>
-        <li>
+        <li class=nav-list><a href="/">Home</a></li>
+        <li class=nav-list ><a href="/users/<%=current_user.id%>">Profile</a></li>
+        <li class=nav-list>
           <form id="the-form" action="/sessions" method="post">
             <input type="hidden" name="_method" value="delete">
             <input id="logout-form" type="submit" value="Logout">
@@ -34,12 +34,13 @@
   <%else %>
     <nav>
       <ul id=bar-if-out>
-        <li><a href="/">Home</a></li>
-        <li><a href="/sessions/new">Login</a></li>
-        <li><a href="/users/new">Register</a></li>
+        <li class=nav-list><a href="/">Home</a></li>
+        <li class=nav-list><a href="/sessions/new">Login</a></li>
+        <li class=nav-list><a href="/users/new">Register</a></li>
       </ul>
     </nav> 
   <%end%>
+  <h1>Stack Overflow</h1>
   <%= yield %>
 </body>
 </html>
