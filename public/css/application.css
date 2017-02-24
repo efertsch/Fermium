@@ -15,11 +15,11 @@
     background-color: #333;
 }
 
-li {
+.nav-list{
 	float: left;
 }
 
-li a {
+.nav-list a {
   display: block;
   color: white;
   text-align: center;
@@ -28,7 +28,7 @@ li a {
 }
 
 
-li a:hover {
+.nav-list a:hover {
     background-color: #111;
 }
 
@@ -43,4 +43,15 @@ li a:hover {
 
 #logout-form:hover {
     background-color: #111;
+}
+
+#num-votes {
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#num-answers {
+  border: 1px solid black;
+  display: inline-block;
+  
 }

@@ -1,0 +1,36 @@
+<h2>Question: <%=@question.id%></h2>
+
+	<div id= question-info>
+		<div id=question-text>
+			<%=@question.question_text%>
+			<div id=question-comments>
+				<h3>Comments Associated with this Question:</h3>
+				<ul>
+					<%@question.comments.each do |comment|%>
+						<li><%=comment.comment_text%></li><br>	
+					<%end%>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id= answer-info>
+		<div id=answer-text>
+			<h3>Answers To This Question:</h3>
+				<ul>
+					<%@question.answers.each do |answer|%>
+						<li><%=answer.answer_text%></li>
+					<%end%>
+				</ul>
+			<div id=answer-comments>
+				<h3>Comments Associated with this Answer:</h3>
+				<ul>
+					<%@question.answers.each do |answer|%>
+						<%answer.comments.each do |comment| %>
+							<li><%=comment.comment_text%></li>
+						<%end%>
+					<%end%>
+				</ul>
+			</div>
+		</div>
+	</div>
