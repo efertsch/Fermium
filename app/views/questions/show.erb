@@ -36,6 +36,7 @@
 		<div id=answer-text>
 			<h3>Answers To This Question:</h3>
 				<ul>
+
 					<%@question.answers.each do |answer|%>
 						<div id=num-votes><p>Votes</p><%=answer.votes.count%></div>
 						<li class= answer-text><%=answer.answer_text%></li><br>

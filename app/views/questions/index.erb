@@ -1,19 +1,22 @@
-<h2>Ask your questions, find your answers (or not).</h2>
-<ul>
-	<% @questions.each do |question| %>
-		<div id=num-votes><p>Votes</p><%=question.votes.count%></div>
-		<div id=num-answers><p>Answers</p><%=question.answers.count%></div>
-
-		<a href=<%="/questions/#{question.id}"%>><li class=question-text><%=question.question_text%></li></a><br>
+<div id=home-page>
+	<h2>Ask your questions, find your answers (or not).</h2>
+	<ul>
+	
+		<% @questions.limit(10).each do |question| %>
+			<div id=num-votes><p>Votes</p><%=question.votes.count%></div>
+			<div id=num-answers><p>Answers</p><%=question.answers.count%></div>
+	
+			<a href=<%="/questions/#{question.id}"%>><li class=question-text><%=question.question_text%></li></a><br>
+				<% end %>
+	
+	</ul>
+	
+	
+	<div>
+			<% if logged_in? %>
+				<a href='/questions/new' >Add new question. </a>
+			<% else %>
+				<a href='/sessions/new' > Please login to add new question. </a>
 			<% end %>
-
-</ul>
-
-
-<div>
-		<% if logged_in? %>
-			<a href='/questions/new' >Add new question. </a>
-		<% else %>
-			<a href='/sessions/new' > Please login to add new question. </a>
-		<% end %>
+	</div>
 </div>
