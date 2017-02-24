@@ -1,11 +1,11 @@
 <h2>Ask your questions, find your answers (or not).</h2>
 <ul>
 	<% @questions.each do |question| %>
+		<div id=num-votes><p>Votes</p><%=question.votes.count%></div>
+		<div id=num-answers><p>Answers</p><%=question.answers.count%></div>
 
-		<a href=<%="/questions/#{question.id}"%>><li><%=question.question_text%></li></a>
-		<div id=num-votes><%=question.votes.count%></div>
-		<div id=num-answers><%=question.answers.count%></div>
-	<% end %>
+		<a href=<%="/questions/#{question.id}"%>><li class=question-text><%=question.question_text%></li></a><br>
+			<% end %>
 
 </ul>
 

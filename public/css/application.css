@@ -45,6 +45,11 @@
     background-color: #111;
 }
 
+.question-text {
+  list-style-type: none;
+  display: inline-block;
+}
+
 #num-votes {
   border: 1px solid black;
   display: inline-block;
@@ -52,6 +57,5 @@
 
 #num-answers {
   border: 1px solid black;
-  display: inline-block;
-  
+  display: inline-block; 
 }
