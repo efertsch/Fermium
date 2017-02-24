@@ -32,14 +32,13 @@
 				<ul>
 					<%@question.answers.each do |answer|%>
 						<div id=num-votes><p>Votes</p><%=answer.votes.count%></div>
+						<li class= answer-text><%=answer.answer_text%></li><br>
 						<%if logged_in?%>
-							<form action=<%="/answers/#{answer.id}/votes"%> method=get>
+							<form action=<%="/answers/#{answer.id}/votes"%> method=post>
 								<input type="hidden" name="_method" value="post">
 								<input type="submit" value="Up Vote">
 							</form>
 						<%end%>
-						<li class= answer-text><%=answer.answer_text%></li><br>
-						<li><%=answer.answer_text%></li>
 
 					<%end%>
 				</ul>
