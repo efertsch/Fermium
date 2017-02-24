@@ -11,3 +11,13 @@ get '/questions/:id' do
 	@question = Question.find_by(id: params[:id])
 	erb :'/questions/show'
 end 
+
+post '/questions' do
+	@question = Question.new(params[:question])
+	if @question.save
+		redirect "/questions/#{@question.id}"
+	else
+		erb :'/questions/new'
+		# not valid user error message
+	end
+end
