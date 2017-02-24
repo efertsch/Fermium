@@ -23,3 +23,17 @@ post '/questions' do
 end
 
 
+post '/questions/:id/comments' do
+	redirect '/sessions/new' unless current_user
+	@question = Question.find(params[:id])
+	@comment = @question.comments.new(user: current_user, comment_text: params[:comment_text])
+	if @comment.save
+		if request.xhr?
+			# erb :comment, layout: false
+		else
+			redirect "/questions/#{params[:id]}"
+		end
+	else
+		"get fucked or something more profess"
+	end
+end
