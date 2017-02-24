@@ -59,3 +59,8 @@
   border: 1px solid black;
   display: inline-block; 
 }
+
+.answer-text {
+  list-style-type: none;
+  display: inline-block;
+}
