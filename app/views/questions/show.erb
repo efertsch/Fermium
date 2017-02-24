@@ -10,6 +10,12 @@
 					<input type="submit" value="Up Vote">
 				</form>
 			<%end%>
+				<%if logged_in?%>
+				<form action=<%="/questions/#{@question.id}/votes"%> method=post>
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="Down Vote">
+				</form>
+			<%end%>
 
 			<div id=question-comments>
 				<h3>Comments Associated with this Question:</h3>
@@ -26,9 +32,6 @@
 		</div>
 	</div>
 
-<div>
-	<a href=<%="/questions/#{@question.id}/answers/new"%>>Help to answer the question! </a>
-</div>
 
 	<div id= answer-info>
 		<div id=answer-text>
@@ -44,8 +47,17 @@
 								<input type="submit" value="Up Vote">
 							</form>
 						<%end%>
+						<%if logged_in?%>
+							<form action=<%="/answers/#{answer.id}/votes"%> method=post>
+								<input type="hidden" name="_method" value="delete">
+								<input type="submit" value="Down Vote">
+							</form>
+						<%end%>
 
 					<%end%>
+					<div>
+						<a href=<%="/questions/#{@question.id}/answers/new"%>>Help to answer the question! </a>
+					</div>
 				</ul>
 			<div id=answer-comments>
 				<h3>Comments Associated with this Answer:</h3>
