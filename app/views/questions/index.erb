@@ -10,5 +10,9 @@
 </ul>
 
 <div>
-	<a href='/questions/new' >new question form </a>
+		<% if logged_in? %>
+			<a href='/questions/new' >Add new question. </a>
+		<% else %>
+			<a href='/sessions/new' > Please login to add new question. </a>
+		<% end %>
 </div>
