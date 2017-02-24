@@ -7,13 +7,15 @@
 				<h3>Comments Associated with this Question:</h3>
 				<ul>
 					<%@question.comments.each do |comment|%>
-						<li><%=comment.comment_text%></li><br>	
+						<li><%=comment.comment_text%></li><br>
 					<%end%>
 				</ul>
 			</div>
 		</div>
 	</div>
-
+<div>
+	<a href=<%="/questions/#{@question.id}/answers/new"%>>Help to answer the question! </a>
+</div>
 	<div id= answer-info>
 		<div id=answer-text>
 			<h3>Answers To This Question:</h3>
