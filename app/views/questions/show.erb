@@ -7,10 +7,14 @@
 				<h3>Comments Associated with this Question:</h3>
 				<ul>
 					<%@question.comments.each do |comment|%>
-						<li><%=comment.comment_text%></li><br>	
+						<li><%=comment.comment_text%></li><br>
 					<%end%>
 				</ul>
 			</div>
+			<form action='/questions/:id' method='post'>
+				<input type="textbox" value="add a comment" onfocus="if (this.value=='add a comment') this.value='';"/>
+				<input type="submit" value="comment" />
+			</form>
 		</div>
 	</div>
 
@@ -20,6 +24,10 @@
 				<ul>
 					<%@question.answers.each do |answer|%>
 						<li><%=answer.answer_text%></li>
+						<form action='/questions/:id' method='post'>
+							<input type="textbox" value="add a comment" onfocus="if (this.value=='add a comment') this.value='';"/>
+							<input type="submit" value="comment" />
+						</form>
 					<%end%>
 				</ul>
 			<div id=answer-comments>
