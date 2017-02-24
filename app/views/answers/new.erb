@@ -1,0 +1,12 @@
+<h2>Question: <%=@question.question_text%></h2>
+
+<h3>Submit your Answer for this Question!</h3>
+
+<br>
+<br>
+<br>
+
+			<form action=<%="/questions/#{@question.id}"%> method='post'>
+				<input type="textbox" name = 'answer[answer_text]' value="add a answer"/>
+				<input type="submit" value="ANSWER ME!!!" />
+			</form>

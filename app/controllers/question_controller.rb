@@ -1,5 +1,5 @@
 get '/questions' do
-	@questions = Question.all
+	@questions = Question.all.order(created_at: :desc)
 	erb :'/questions/index'
 end
 
@@ -22,11 +22,8 @@ post '/questions' do
 	end
 end
 
+
 post '/questions/:id/comments' do
-	# p "% " * 30
-	# p params
-	# p "% " * 30
-	p current_user
 	redirect '/sessions/new' unless current_user
 	@question = Question.find(params[:id])
 	@comment = @question.comments.new(user: current_user, comment_text: params[:comment_text])
