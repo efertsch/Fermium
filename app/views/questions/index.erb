@@ -1,5 +1,6 @@
 <h2>Ask your questions, find your answers (or not).</h2>
 <ul>
+	
 	<% @questions.each do |question| %>
 		<div id=num-votes><p>Votes</p><%=question.votes.count%></div>
 		<div id=num-answers><p>Answers</p><%=question.answers.count%></div>
