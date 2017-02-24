@@ -44,3 +44,14 @@
 #logout-form:hover {
     background-color: #111;
 }
+
+#num-votes {
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#num-answers {
+  border: 1px solid black;
+  display: inline-block;
+  
+}
