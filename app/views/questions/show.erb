@@ -1,8 +1,16 @@
-<h2>Question: <%=@question.id%></h2>
 
 	<div id= question-info>
+		<h2>Question: <%=@question.id%></h2>
 		<div id=question-text>
+			<div id=num-votes><p>Votes</p><%=@question.votes.count%></div>
 			<%=@question.question_text%>
+			<%if logged_in?%>
+				<form action=<%="/questions/#{@question.id}/votes"%> method=post>
+					<input type="hidden" name="_method" value="post">
+					<input type="submit" value="Up Vote">
+				</form>
+			<%end%>
+
 			<div id=question-comments>
 				<h3>Comments Associated with this Question:</h3>
 				<ul>
@@ -11,17 +19,33 @@
 					<%end%>
 				</ul>
 			</div>
+			<form action='/questions/:id' method='post'>
+				<input type="textbox" value="add a comment" onfocus="if (this.value=='add a comment') this.value='';"/>
+				<input type="submit" value="comment" />
+			</form>
 		</div>
 	</div>
+<<<<<<< HEAD
 <div>
 	<a href=<%="/questions/#{@question.id}/answers/new"%>>Help to answer the question! </a>
 </div>
+=======
+	
+>>>>>>> 4514590661e80d784466b36fefd8c990f5d08e97
 	<div id= answer-info>
 		<div id=answer-text>
 			<h3>Answers To This Question:</h3>
 				<ul>
 					<%@question.answers.each do |answer|%>
-						<li><%=answer.answer_text%></li>
+						<div id=num-votes><p>Votes</p><%=answer.votes.count%></div>
+						<li class= answer-text><%=answer.answer_text%></li><br>
+						<%if logged_in?%>
+							<form action=<%="/answers/#{answer.id}/votes"%> method=post>
+								<input type="hidden" name="_method" value="post">
+								<input type="submit" value="Up Vote">
+							</form>
+						<%end%>
+
 					<%end%>
 				</ul>
 			<div id=answer-comments>
@@ -33,6 +57,10 @@
 						<%end%>
 					<%end%>
 				</ul>
+						<form action='/questions/:id' method='post'>
+							<input type="textbox" value="add a comment" onfocus="if (this.value=='add a comment') this.value='';"/>
+							<input type="submit" value="comment" />
+						</form>
 			</div>
 		</div>
 	</div>

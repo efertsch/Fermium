@@ -1,18 +1,19 @@
-get '/sessions/new' do 
+get '/sessions/new' do
 	erb :'sessions/new'
-end 
+end
 
 post '/sessions' do
 	@user = User.authenticate(params[:user][:email], params[:user][:password])
 	if @user
 		login
+		
 		redirect "/users/#{@user.id}"
-	else 
+	else
 		erb :'/sessions/new'
-	end 
-end 
+	end
+end
 
-delete '/sessions' do 
+delete '/sessions' do
 	logout
 	redirect '/'
-end 
+end
