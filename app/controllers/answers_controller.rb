@@ -13,6 +13,5 @@ post '/questions/:id' do
 		redirect "/questions/#{@question.id}"
 	else
 		erb :'/answers/new'
-end
-
+	end
 end

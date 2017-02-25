@@ -25,10 +25,11 @@
 					<%end%>
 				</ul>
 			</div>
-			<form action=<%="/questions/#{@question.id}/comments"%> method='post'>
+			<form id="comment-form" action=<%="/questions/#{@question.id}/comments"%> method='post'>
 				<input type="textbox" name="comment_text" value="add a comment" onfocus="if (this.value=='add a comment') this.value='';"/>
 				<input type="submit" value="comment" />
 			</form>
+			<button id="comment-button" type="button">Comment</button>
 		</div>
 	</div>
 
@@ -68,10 +69,11 @@
 						<%end%>
 					<%end%>
 				</ul>
-						<form action="/questions/#{comment.id}" method='post'>
+						<form id="comment-form" action="/questions/#{comment.id}" method='post'>
 							<input type="textbox" value="add a comment" onfocus="if (this.value=='add a comment') this.value='';"/>
 							<input type="submit" value="comment" />
 						</form>
+						<button id="comment-button" type="button">Comment</button>
 			</div>
 		</div>
 	</div>
