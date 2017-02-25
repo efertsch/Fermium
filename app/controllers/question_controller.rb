@@ -29,7 +29,7 @@ post '/questions/:id/comments' do
 	@comment = @question.comments.new(user: current_user, comment_text: params[:comment_text])
 	if @comment.save
 		if request.xhr?
-			# erb :comment, layout: false
+			erb :comment, layout: false
 		else
 			redirect "/questions/#{params[:id]}"
 		end
