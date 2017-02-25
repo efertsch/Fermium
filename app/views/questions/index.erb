@@ -14,7 +14,7 @@
 	
 	<div>
 			<% if logged_in? %>
-				<a href='/questions/new' >Add new question. </a>
+				<a id="new-question-link" href='/questions/new' >Add new question. </a>
 			<% else %>
 				<a href='/sessions/new' > Please login to add new question. </a>
 			<% end %>
