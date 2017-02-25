@@ -14,6 +14,7 @@ end
 
 post '/questions' do
 	@question = Question.new(params[:question])
+	@question.user_id = current_user.id
 	if @question.save
 		redirect "/questions/#{@question.id}"
 	else
@@ -21,5 +22,3 @@ post '/questions' do
 		# not valid user error message
 	end
 end
-
-
