@@ -1,14 +1,15 @@
-<div id=home-page>
-	<h2>Ask your questions, find your answers (or not).</h2>
+<h2>Ask your questions, find your answers (or not). </h2>
+<div id="home-page">
 	<ul>
-	
+		
 		<% @questions.limit(10).each do |question| %>
-			<div id=num-votes><p>Votes</p><%=question.votes.count%></div>
-			<div id=num-answers><p>Answers</p><%=question.answers.count%></div>
+			<div id= "single-question-homepage">
+				<div id=num-votes><p>Votes</p><%=question.votes.count%></div>
+				<div id=num-answers><p>Answers</p><%=question.answers.count%></div>
 	
-			<a href=<%="/questions/#{question.id}"%>><li class=question-text><%=question.question_text%></li></a><br>
-				<% end %>
-	
+				<a href=<%="/questions/#{question.id}"%>><li class=question-text><%=question.question_text%></li></a><br>
+			</div>
+		<% end %>
 	</ul>
 	
 	
